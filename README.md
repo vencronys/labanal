@@ -57,11 +57,11 @@ Labanal/
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-team/labanal.git
+   git clone https://github.com/vencronys/labanal.git
    ```
 2. Set up the database using the provided SQL script:
    ```sh
-   mysql -u root -p < database/labanaldump.sql
+   mysql -u root -p < database/create_tables.sql
    ```
 3. Deploy the web application (`www/`) to a web server.
 4. Compile the C++ application from `cpp/`.
