@@ -57,7 +57,7 @@ Labanal/
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-team/labanal.git
+   git clone https://github.com/vencronys/labanal.git
    ```
 2. Set up the database using the provided SQL script:
    ```sh
