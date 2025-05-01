@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labanal</title>
+    <script src="https://kit.fontawesome.com/0197b6ebf2.js" crossorigin="anonymous"></script>
+    <title>MedLab Analyses</title>
 </head>
 <body>
     <h1>Welcome to the external application!</h1>
