@@ -1,0 +1,44 @@
+[2025-04-29 21:35:06] INFO: Starting MedLab application...
+[2025-04-29 21:35:06] INFO: Attempting to establish database connection
+[2025-04-29 21:35:06] INFO: Initializing database connection...
+[2025-04-29 21:35:06] INFO: Database connection established successfully
+[2025-04-29 21:35:06] INFO: Database connection successful
+[2025-04-29 21:35:06] INFO: Initializing main menu
+[2025-04-29 21:35:06] INFO: Displaying main menu
+[2025-04-29 21:35:21] INFO: Attempting authentication for email: vencronys@gmail.com
+[2025-04-29 21:35:21] INFO: Reusing existing database connection
+[2025-04-29 21:35:21] INFO: Authentication successful for email: vencronys@gmail.com
+[2025-04-29 21:35:21] INFO: Displaying Technicien Menu
+[2025-04-29 21:35:24] INFO: Technicien selected option: 2
+[2025-04-29 21:35:24] INFO: Attempting to check blood samples
+[2025-04-29 21:35:25] INFO: Technicien selected option: 1
+[2025-04-29 21:35:25] INFO: Attempting to view the profile
+[2025-04-29 21:35:27] INFO: Technicien selected option: 3
+[2025-04-29 21:35:27] INFO: Technicien logging out
+[2025-04-29 21:35:29] INFO: Application shutdown initiated
+[2025-04-29 21:35:29] INFO: Closing database connection...
+[2025-04-29 21:35:29] INFO: Database connection closed successfully
+[2025-04-29 21:35:29] INFO: Application shutdown complete
+[2025-04-30 21:59:31] INFO: Starting MedLab application...
+[2025-04-30 21:59:31] INFO: Attempting to establish database connection
+[2025-04-30 21:59:31] INFO: Initializing database connection...
+[2025-04-30 21:59:32] INFO: Database connection established successfully
+[2025-04-30 21:59:32] INFO: Database connection successful
+[2025-04-30 21:59:32] INFO: Initializing main menu
+[2025-04-30 21:59:32] INFO: Displaying main menu
+[2025-04-30 21:59:47] INFO: Attempting authentication for email: vencronys@gmail.com
+[2025-04-30 21:59:47] INFO: Reusing existing database connection
+[2025-04-30 21:59:47] INFO: Authentication successful for email: vencronys@gmail.com
+[2025-04-30 21:59:47] INFO: Displaying Technicien Menu
+[2025-04-30 21:59:53] INFO: Technicien selected option: 1
+[2025-04-30 21:59:53] INFO: Attempting to view the profile
+[2025-04-30 21:59:58] INFO: Technicien selected option: 3
+[2025-04-30 21:59:58] INFO: Technicien logging out
+[2025-04-30 22:00:02] INFO: Attempting authentication for email: kljlkdsaf
+[2025-04-30 22:00:02] INFO: Initializing database connection...
+[2025-04-30 22:00:02] INFO: Database connection established successfully
+[2025-04-30 22:00:02] INFO: Authentication failed for email: kljlkdsaf
+[2025-04-30 22:00:03] INFO: Application shutdown initiated
+[2025-04-30 22:00:03] INFO: Closing database connection...
+[2025-04-30 22:00:03] INFO: Database connection closed successfully
+[2025-04-30 22:00:03] INFO: Application shutdown complete
