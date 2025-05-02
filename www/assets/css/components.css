@@ -9,7 +9,7 @@
 }
 
 .btn:hover {
-    background-color: var(--accent-color-darker);
+    background-color: var(--accent-color-hover);
 }
 
 .btn:active {
