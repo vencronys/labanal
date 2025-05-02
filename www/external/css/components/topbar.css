@@ -1,3 +1,9 @@
+.topbar {
+    background-color: var(--white);
+    margin: 0 -180px;
+    padding: 0 180px;
+}
+
 .topbar .logo i {
     font-size: 2rem;
     color: var(--primary-color);

@@ -1,7 +1,7 @@
 <div class="topbar flex flex-jus-con-spa-bet">
     <div class="logo flex flex-ali-ite-cen">
         <h1>
-            <i class="fa-solid fa-flask"></i>
+            <i class="fa-solid fa-microscope"></i>
             <span>med</span><span>lab</span>
         </h1>
     </div>
