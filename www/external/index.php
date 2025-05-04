@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!-- index.php - Entry point for the application -->
 <!DOCTYPE html>
 <html lang="en">
@@ -7,13 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedLab Analyses</title>
     <script src="https://kit.fontawesome.com/0197b6ebf2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/medlab-analyses/www/external/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body class="home-page">
     <div class="sticky-top">
-        <?php include 'includes/topbar.php'; ?>
-        <?php include 'includes/navigation.php'; ?>
+        <?php
+        include 'includes/topbar.php';
+        include 'includes/navigation.php';
+        ?>
     </div>
     <div class="hero flex flex-ali-ite-cen">
         <div>
@@ -147,8 +152,10 @@
         </div>
     </div>
 
-    <?php include 'includes/contact.php'; ?>
-    <?php include 'includes/footer.php'; ?>
+    <?php
+    include 'includes/contact.php';
+    include 'includes/footer.php';
+    ?>
 
 
 </body>
