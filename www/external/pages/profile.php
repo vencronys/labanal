@@ -103,7 +103,7 @@ $email_compte = $_SESSION['email_compte'];
                             <p class="location"><i class="fas fa-map-marker-alt"></i> Centre Ville</p>
                         </div>
                         <div class="appointment-actions">
-                            <a href="#" class="btn-reschedule">Reprogrammer</a>
+                            <!-- <a href="#" class="btn-reschedule">Reprogrammer</a> -->
                             <a href="#" class="btn-cancel">Annuler</a>
                         </div>
                     </div>

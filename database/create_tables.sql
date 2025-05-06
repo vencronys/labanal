@@ -7,6 +7,7 @@ CREATE TABLE DISN1IMH_V13_compte (
         'SECRETAIRE',
         'INFIRMIER',
         'TECHNICIEN',
+        'CHEF_TECHNICIEN',
         'PATIENT'
     ) NOT NULL,
     statut_compte ENUM ('ACTIF', 'INACTIF', 'SUSPENDU') DEFAULT 'ACTIF',
@@ -22,7 +23,7 @@ CREATE TABLE DISN1IMH_V13_patient (
     sexe_patient ENUM ('M', 'F') NOT NULL,
     adresse_patient TEXT,
     telephone_patient NCHAR(10) UNIQUE,
-    id_compte INT NOT NULL,
+    id_compte INT UNIQUE NOT NULL,
     CONSTRAINT fk_patient_compte_id FOREIGN KEY (id_compte) REFERENCES DISN1IMH_V13_compte (id_compte)
 );
 
