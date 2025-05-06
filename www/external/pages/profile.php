@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_compte'])) {
 
 $id_compte = $_SESSION['id_compte'];
 
-include ('../includes/database.php');
+include('../includes/database.php');
 
 $query = "SELECT * FROM patient WHERE id_compte = $id_compte";
 $result = ($conn->query($query))->fetchAll(PDO::FETCH_ASSOC);
@@ -26,6 +26,7 @@ $email_compte = $_SESSION['email_compte'];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +35,7 @@ $email_compte = $_SESSION['email_compte'];
     <link rel="stylesheet" href="../css/pages/profile.css">
     <script src="https://kit.fontawesome.com/0197b6ebf2.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="sticky-top">
         <?php
@@ -59,7 +61,7 @@ $email_compte = $_SESSION['email_compte'];
                 <div class="info-content flex flex-dir-col">
                     <div class="info-group">
                         <label>Nom:</label>
-                        <p><?php echo htmlspecialchars($nom_patient); ?></p>
+                        <p><?php echo htmlspecialchars("$nom_patient $prenom_patient"); ?></p>
                     </div>
                     <div class="info-group">
                         <label>Email:</label>
@@ -69,7 +71,7 @@ $email_compte = $_SESSION['email_compte'];
                         <label>Téléphone:</label>
                         <p><?php echo htmlspecialchars($telephone_patient); ?></p>
                     </div>
-                    <a href="#" class="btn-edit">Modifier mes informations</a>
+                    <a href="/medlab-analyses/www/external/pages/modifier-info-form.php" class="btn-edit btn-new-appointment">Modifier mes informations</a>
                 </div>
             </section>
 
@@ -78,14 +80,14 @@ $email_compte = $_SESSION['email_compte'];
                 <div class="results-list">
                     <div class="result-item">
                         <div class="result-info">
-                            <h3>Analyse Sanguine</h3>
+                            <h3>Analyse Generale</h3>
                             <p class="date">28/04/2025</p>
                         </div>
                         <a href="#" class="btn-view">Voir <i class="fas fa-chevron-right"></i></a>
                     </div>
                     <div class="result-item">
                         <div class="result-info">
-                            <h3>Test COVID-19</h3>
+                            <h3>Analyse de cholesterole</h3>
                             <p class="date">15/04/2025</p>
                         </div>
                         <a href="#" class="btn-view">Voir <i class="fas fa-chevron-right"></i></a>
@@ -142,4 +144,5 @@ $email_compte = $_SESSION['email_compte'];
 
     <?php include '../includes/footer.php'; ?>
 </body>
+
 </html>

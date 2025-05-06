@@ -41,6 +41,8 @@
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: var(--shadow);
+    position: relative;
+    padding-bottom: 5rem;
 }
 
 .profile-card h2 {
@@ -150,14 +152,17 @@
 }
 
 .btn-new-appointment {
-    display: block;
+    position: absolute;
+    bottom: 1rem;
+    width: calc(100% - 2rem);
+    left: 1rem;
     text-align: center;
     padding: 0.75rem;
     background: var(--accent-color);
     color: var(--primary-color);
     border-radius: 4px;
     text-decoration: none;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     transition: background-color 0.2s;
 }
 
