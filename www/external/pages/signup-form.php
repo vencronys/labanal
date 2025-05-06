@@ -29,7 +29,7 @@
                             <i class="fa-solid fa-user"></i>
                             Nom
                         </label>
-                        <input type="text" id="nom_patient" name="nom_patient" required>
+                        <input type="text" id="nom_patient" name="nom_patient" required pattern="[A-Za-z ]{3,100}">
                     </div>
 
                     <div class="form-group">
@@ -37,7 +37,7 @@
                             <i class="fa-solid fa-user"></i>
                             Prénom
                         </label>
-                        <input type="text" id="prenom_patient" name="prenom_patient" required>
+                        <input type="text" id="prenom_patient" name="prenom_patient" required pattern="[A-Za-z ]{3,100}">
                     </div>
 
                     <div class="form-group">
@@ -45,7 +45,7 @@
                             <i class="fa-solid fa-id-card"></i>
                             CIN
                         </label>
-                        <input type="text" id="cin_patient" name="cin_patient" required>
+                        <input type="text" id="cin_patient" name="cin_patient" required pattern="[A-Za-z]{1}[0-9]{6}">
                     </div>
 
                     <div class="form-group">
@@ -82,7 +82,7 @@
                             Téléphone
                         </label>
                         <input type="tel" id="telephone_patient" name="telephone_patient" 
-                               pattern="[0-9+]+">
+                               pattern="0[0-9]{9}" required>
                     </div>
                 </div>
 
