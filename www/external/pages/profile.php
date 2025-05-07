@@ -11,8 +11,13 @@ $id_compte = $_SESSION['id_compte'];
 
 include('../includes/database.php');
 
-$query = "SELECT * FROM disn1imh_v13_patient p INNER JOIN disn1imh_v13_compte c ON p.id_compte = c.id_compte WHERE p.id_compte = $id_compte";
-$result = ($conn->query($query))->fetchAll(PDO::FETCH_ASSOC);
+$query = "SELECT * FROM disn1imh_v13_patient p INNER JOIN disn1imh_v13_compte c ON p.id_compte = c.id_compte WHERE p.id_compte = :id_compte";
+$stmt = $conn->prepare($query);
+$stmt->execute([
+    "id_compte" => $_SESSION["id_compte"]
+]);
+
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $nom_patient = $result[0]["nom_patient"];
 $prenom_patient = $result[0]["prenom_patient"];
@@ -22,6 +27,16 @@ $sexe_patient = $result[0]["sexe_patient"];
 $adresse_patient = $result[0]["adresse_patient"];
 $telephone_patient = $result[0]["telephone_patient"];
 $email_compte = $result[0]["email_compte"];
+
+$query = "SELECT * FROM disn1imh_v13_rdv r WHERE (SELECT p.id_patient FROM disn1imh_v13_patient p WHERE p.id_compte = :id_compte AND r.statut_rdv NOT in ('ANNULE', 'TERMINE'))";
+$stmt = $conn->prepare($query);
+$stmt->execute([
+    "id_compte" => $_SESSION["id_compte"]
+]);
+
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$list_rdv = $result;
 
 ?>
 <!DOCTYPE html>
@@ -71,7 +86,8 @@ $email_compte = $result[0]["email_compte"];
                         <label>Téléphone:</label>
                         <p><?php echo htmlspecialchars($telephone_patient); ?></p>
                     </div>
-                    <a href="/medlab-analyses/www/external/pages/modifier-info-form.php" class="btn-edit btn-new-appointment">Modifier mes informations</a>
+                    <a href="/medlab-analyses/www/external/pages/modifier-info-form.php"
+                        class="btn-edit btn-new-appointment">Modifier mes informations</a>
                 </div>
             </section>
 
@@ -98,19 +114,46 @@ $email_compte = $result[0]["email_compte"];
             <section class="profile-card upcoming-appointments">
                 <h2><i class="fas fa-calendar-alt"></i> Rendez-vous à Venir</h2>
                 <div class="appointments-list">
-                    <div class="appointment-item">
-                        <div class="appointment-info">
-                            <h3>Prise de Sang</h3>
-                            <p class="date"><i class="fas fa-clock"></i> 10/05/2025 - 09:30</p>
-                            <p class="location"><i class="fas fa-map-marker-alt"></i> Centre Ville</p>
-                        </div>
-                        <div class="appointment-actions">
-                            <!-- <a href="#" class="btn-reschedule">Reprogrammer</a> -->
-                            <a href="#" class="btn-cancel">Annuler</a>
-                        </div>
-                    </div>
+
+
+                    <?php
+
+                    if (count($list_rdv) == 0) {
+                        echo "<p>Aucun rendez-vous à venir.</p>";
+                    } else {
+
+                        foreach ($list_rdv as $row) {
+                            echo "<div class='appointment-item'>";
+                            echo "<div class='appointment-info'>";
+                            echo "<h3>Prise de Sang</h3>";
+                            echo "<p class='date'><i class='fas fa-clock'></i> " . $row['date_rdv'] . "</p>";
+                            echo "<p class='statut'>";
+                            switch ($row['statut_rdv']) {
+                                case 'EN_ATTENTE':
+                                    echo "<i class='fas fa-hourglass-half'></i> Status: En attente";
+                                    break;
+                                case 'CONFIRME':
+                                    echo "<i class='fas fa-check-circle'></i> Status: Confirmé";
+                                    break;
+                                case 'ANNULE':
+                                    echo "<i class='fas fa-times-circle'></i> Status: Annulé";
+                                    break;
+                                case 'TERMINE':
+                                    echo "<i class='fas fa-check-double'></i> Status: Terminé";
+                                    break;
+                            }
+                            echo "</p>";
+                            echo "</div>";
+                            echo "<div class='appointment-actions'>";
+                            echo "<a href='/medlab-analyses/www/external/pages/annuler-rdv.php?id_rdv=" . $row['id_rdv'] . "' class='btn-cancel'>Annuler</a>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                    }
+                    ?>
                 </div>
-                <a href="contact-form.php" class="btn-new-appointment">Nouveau Rendez-vous</a>
+                <a href="/medlab-analyses/www/external/pages/rdv-form.php" class="btn-new-appointment">Nouveau
+                    Rendez-vous</a>
             </section>
 
             <section class="profile-card preferences">
