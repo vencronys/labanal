@@ -41,7 +41,7 @@ if (strlen($password) < 3) {
     exit();
 }
 
-$query = "SELECT id_compte FROM compte WHERE email_compte = :email AND mot_de_passe_compte = :password";
+$query = "SELECT id_compte FROM disn1imh_v13_compte c WHERE c.email_compte = :email AND mot_de_passe_compte = :password";
 $stmt = $conn->prepare($query);
 $stmt->execute([':email' => $email, ':password' => $password]);
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

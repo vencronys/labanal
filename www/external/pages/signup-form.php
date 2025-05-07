@@ -45,7 +45,7 @@
                             <i class="fa-solid fa-id-card"></i>
                             CIN
                         </label>
-                        <input type="text" id="cin_patient" name="cin_patient" required pattern="[A-Za-z]{1}[0-9]{6}">
+                        <input type="text" id="cin_patient" name="cin_patient" required pattern="[A-Za-z0-9]{7}">
                     </div>
 
                     <div class="form-group">
@@ -81,8 +81,8 @@
                             <i class="fa-solid fa-phone"></i>
                             Téléphone
                         </label>
-                        <input type="tel" id="telephone_patient" name="telephone_patient" 
-                               pattern="0[0-9]{9}" required>
+                        <input type="tel" id="telephone_patient" name="telephone_patient"
+                            pattern="0[0-9]{9}" required>
                     </div>
                 </div>
 
@@ -94,8 +94,8 @@
                             <i class="fa-solid fa-envelope"></i>
                             Email
                         </label>
-                        <input type="email" id="email_compte" name="email_compte" required 
-                               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                        <input type="email" id="email_compte" name="email_compte" required
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                     </div>
 
                     <div class="form-group">
@@ -103,8 +103,8 @@
                             <i class="fa-solid fa-lock"></i>
                             Mot de passe
                         </label>
-                        <input type="password" id="mot_de_passe_compte" name="mot_de_passe_compte" 
-                               required pattern=".{3,}" title="Le mot de passe doit contenir au moins 8 caractères">
+                        <input type="password" id="mot_de_passe_compte" name="mot_de_passe_compte"
+                            required pattern=".{3,}" title="Le mot de passe doit contenir au moins 8 caractères">
                     </div>
 
                     <div class="form-group">
@@ -112,8 +112,8 @@
                             <i class="fa-solid fa-lock"></i>
                             Confirmer le mot de passe
                         </label>
-                        <input type="password" id="confirm_password" name="confirm_password" 
-                               required pattern=".{3,}">
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            required pattern=".{3,}">
                     </div>
                 </div>
 

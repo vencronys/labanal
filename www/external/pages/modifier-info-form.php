@@ -7,7 +7,7 @@ if (!isset($_SESSION["id_compte"])) {
 
 include '../includes/database.php';
 
-$stmt = $conn->prepare('SELECT * FROM patient p INNER JOIN compte c on p.id_compte = c.id_compte WHERE p.id_compte = :id_compte');
+$stmt = $conn->prepare('SELECT * FROM disn1imh_v13_patient p INNER JOIN disn1imh_v13_compte c on p.id_compte = c.id_compte WHERE p.id_compte = :id_compte');
 $stmt->execute(
     array(
         ':id_compte' => $_SESSION['id_compte']
@@ -31,7 +31,7 @@ $mot_de_passe_compte = $data['mot_de_passe_compte'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -51,7 +51,7 @@ $mot_de_passe_compte = $data['mot_de_passe_compte'];
     </div>
     <div class="signup-container">
         <div class="signup-box">
-            <h1>Midifier vos information</h1>
+            <h1>Modifier vos information</h1>
             <form class="signup-form" method="post" action="modifier-info.php">
                 <!-- Patient Information (Left Column) -->
                 <div class="form-section patient-info">

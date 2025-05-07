@@ -35,15 +35,15 @@ $mot_de_passe_compte = $_POST['mot_de_passe_compte'];
 $confirm_password = $_POST['confirm_password'];
 
 if (
-    empty($nom_patient) || !preg_match("/^[a-zA-Z ]+$/", $nom_patient) ||
-    empty($prenom_patient) || !preg_match("/^[a-zA-Z ]+$/", $prenom_patient) ||
-    empty($cin_patient) || !preg_match('/^[A-Za-z]{1}[0-9]{6}$/', $cin_patient) ||
+    empty($nom_patient) || !preg_match("/[a-zA-Z ]{3,100}/", $nom_patient) ||
+    empty($prenom_patient) || !preg_match("/[A-Za-z ]{3,100}/", $prenom_patient) ||
+    empty($cin_patient) || !preg_match('/[A-Za-z0-9]{7}/', $cin_patient) ||
     empty($date_naissance_patient) ||
     empty($sexe_patient) ||
     empty($adresse_patient) ||
-    empty($telephone_patient) || !preg_match('/^[0-9]{8}$/', $telephone_patient) ||
+    empty($telephone_patient) || !preg_match('/0[0-9]{9}/', $telephone_patient) ||
     empty($email_compte) || !preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email_compte) ||
-    empty($mot_de_passe_compte) || !preg_match('/.{3,}/', $mot_de_passe_compte) ||
+    empty($mot_de_passe_compte) || !preg_match('/.{3,255}/', $mot_de_passe_compte) ||
     empty($confirm_password) || $confirm_password != $mot_de_passe_compte
 ) {
     $error = "Erreur de validation.";
@@ -52,14 +52,14 @@ if (
     exit();
 }
 
-$query = "INSERT INTO compte (email_compte, mot_de_passe_compte, privilege_compte) VALUES (:email, :password, 'patient')";
+$query = "INSERT INTO disn1imh_v13_compte (email_compte, mot_de_passe_compte, privilege_compte) VALUES (:email, :password, 'patient')";
 $stmt = $conn->prepare($query);
 $stmt->execute([':email' => $email_compte, ':password' => $mot_de_passe_compte]);
 
 // Get the new account ID
 $id_compte = $conn->lastInsertId();
 
-$query = "INSERT INTO patient (nom_patient, prenom_patient, cin_patient, date_naissance_patient, sexe_patient, adresse_patient, telephone_patient, id_compte) 
+$query = "INSERT INTO disn1imh_v13_patient (nom_patient, prenom_patient, cin_patient, date_naissance_patient, sexe_patient, adresse_patient, telephone_patient, id_compte) 
           VALUES (:nom, :prenom, :cin, :date_naissance, :sexe, :adresse, :telephone, :id_compte)";
 $stmt = $conn->prepare($query);
 $stmt->execute([
