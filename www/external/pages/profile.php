@@ -11,7 +11,7 @@ $id_compte = $_SESSION['id_compte'];
 
 include('../includes/database.php');
 
-$query = "SELECT * FROM patient WHERE id_compte = $id_compte";
+$query = "SELECT * FROM disn1imh_v13_patient p INNER JOIN disn1imh_v13_compte c ON p.id_compte = c.id_compte WHERE p.id_compte = $id_compte";
 $result = ($conn->query($query))->fetchAll(PDO::FETCH_ASSOC);
 
 $nom_patient = $result[0]["nom_patient"];
@@ -21,7 +21,7 @@ $date_naissance_patient = $result[0]["date_naissance_patient"];
 $sexe_patient = $result[0]["sexe_patient"];
 $adresse_patient = $result[0]["adresse_patient"];
 $telephone_patient = $result[0]["telephone_patient"];
-$email_compte = $_SESSION['email_compte'];
+$email_compte = $result[0]["email_compte"];
 
 ?>
 <!DOCTYPE html>

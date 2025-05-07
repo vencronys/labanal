@@ -49,7 +49,7 @@ if (
 require("../includes/database.php");
 
 
-$stmt = $conn->prepare('SELECT mot_de_passe_compte FROM compte c WHERE c.id_compte = :id_compte');
+$stmt = $conn->prepare('SELECT c.mot_de_passe_compte FROM disn1imh_v13_compte c WHERE c.id_compte = :id_compte');
 $stmt->execute(
     array(
         ':id_compte' => $_SESSION['id_compte']
@@ -66,7 +66,7 @@ if ($mot_de_passe_compte != $data['mot_de_passe_compte']) {
 
 $password = (empty($nouveau_mot_de_passe_compte)) ? $mot_de_passe_compte : $nouveau_mot_de_passe_compte;
 
-$query = "UPDATE compte c SET c.email_compte = :email, c.mot_de_passe_compte = :password WHERE c.id_compte = :id_compte";
+$query = "UPDATE disn1imh_v13_compte c SET c.email_compte = :email, c.mot_de_passe_compte = :password WHERE c.id_compte = :id_compte";
 $stmt = $conn->prepare($query);
 $stmt->execute([
     ':email' => $email_compte,
@@ -74,7 +74,7 @@ $stmt->execute([
     ':id_compte' => $_SESSION["id_compte"]
 ]);
 
-$query = "UPDATE patient p SET 
+$query = "UPDATE disn1imh_v13_patient p SET 
     p.nom_patient = :nom_patient, 
     p.prenom_patient = :prenom_patient, 
     p.cin_patient = :cin_patient, 
