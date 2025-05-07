@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+if (isset($_POST['id_compte'])) {
+    header("Location:/medlab-analyses/www/external/index.php?id_compte=" . $_POST['id_compte']);
+    exit();
+}
+
+require("logger.php");
+
+// Initialize logger
+$logger = new Logger();
+
+// Log form access
+if (isset($_SESSION['id_compte'])) {
+    $logger->log('FORM_ACCESS', $_SESSION['id_compte'], 'Accessed login form');
+} else {
+    $logger->log('FORM_ACCESS', null, 'Guest accessed login form');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

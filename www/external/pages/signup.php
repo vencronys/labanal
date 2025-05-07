@@ -1,9 +1,16 @@
 <?php
+session_start();
+
 require("../includes/database.php");
 require("logger.php");
 
 // Initialize logger
 $logger = new Logger();
+
+if (isset($_POST["id_compte"])) {
+    header("Location:/medlab-analyses/www/external/index.php");
+    exit();
+}
 
 if (
     !isset($_POST['nom_patient']) ||
@@ -19,7 +26,7 @@ if (
 ) {
     $error = "Veuillez remplir tous les champs.";
     $logger->logError("Missing required signup fields");
-    header("Location: /medlab-analyses/www/external/pages/signup-form.php?error=$error");
+    header("Location:/medlab-analyses/www/external/pages/signup-form.php?error=$error");
     exit();
 }
 

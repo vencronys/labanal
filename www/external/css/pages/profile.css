@@ -105,12 +105,16 @@
     margin-bottom: 0.25rem;
 }
 
-.date, .location {
+.date, .statut {
     color: var(--text-color);
     font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.statut {
+    margin-top: 4px;
 }
 
 .btn-view {
@@ -135,6 +139,7 @@
 }
 
 .btn-reschedule, .btn-cancel {
+    margin-top: 6px;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     text-decoration: none;
