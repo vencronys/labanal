@@ -7,7 +7,7 @@
     <title>MedLab Analyses</title>
 </head>
 <body>
-    <h1>Welcome to the internal application!</h1>
+    <h1>Welcome to the internal ah</h1>
     <p>This is the index.php boilerplate.</p>
 </body>
 </html>
