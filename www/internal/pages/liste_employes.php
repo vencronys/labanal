@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['medecin_id'])) {
+if (!isset($_SESSION['medecin_id'])) {
     header('Location: login.php');
     exit();
 }
@@ -40,6 +40,9 @@ $employes = $requete->fetchAll(PDO::FETCH_ASSOC);
                     <th>Téléphone</th>
                     <th>salaire</th>
                     <th>date_embauche</th>
+                    <th>email</th>
+                    <th>mot_de_passe</th>
+                    <th> Privilège </th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -55,9 +58,16 @@ $employes = $requete->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $emp['Téléphone']; ?></td>
                         <td><?php echo $emp['salaire']; ?></td>
                         <td><?php echo $emp['date_embauche']; ?></td>
+                        <td><?php echo $emp['email']; ?></td>
+                        <td>******</td>
+                        <td><?php echo $emp['Privilège']; ?></td>
+
+
+
                         <td>
                             <a href="modifier_employe.php?id=<?php echo $emp['id']; ?>" class="btn btn-sm btn-warning">Modifier</a>
                             <a href="supprimer_employe.php?id=<?php echo $emp['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employé ?');">Supprimer</a>
+                
                         </td>
                     </tr>
                 <?php endforeach; ?>
